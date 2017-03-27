@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Limerick Institute of Technology</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	
+	
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	</script>
+	
+	<!--My API Key & Google Maps Syntax-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARYPWAsE5IFiwasKMUTf-HbBGOpo3UWik&callback=myMap"></script>
+
+<!--My Favicon Icon Link-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+	
+  <style>
+  body {
+      font:  sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+	  
+	  .jumbotron text-center h1 {
+		  font-size: 1.5em;
+      text-transform: uppercase;
+      color: black;
+      font-weight: 500;
+      margin-bottom: 27px;
+	  }	  
+	  
+
+	  
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: black;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: black;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }  
+  .jumbotron {
+      background-color: lightgray;
+      color: black;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+  }
+  .container-fluid {
+      padding: 60px 50px;
+  }
+  .bg-grey {
+      background-color: beige;
+  }
+  .logo-small {
+      color: mediumpurple;
+      font-size: 50px;
+  }
+  .logo {
+      color: mediumpurple;
+      font-size: 200px;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+      background-image: none;
+      color: purple;
+  }
+  .carousel-indicators li {
+      border-color: mediumpurple;
+  }
+  .carousel-indicators li.active {
+      background-color: mediumpurple;
+  }
+  .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+  }
+  .item span {
+      font-style: normal;
+  }
+	  
+	  .col-sm-7 slideanim{
+		  float: clear;
+	  }
+	  
+	  .col-sm-5{
+		  float: clear;
+		  margin-top: 30px;
+	  }
+	  
+	  .jumbotron p {
+		  margin-top: -15px;
+	  }
+	  
+	
+	  
+	  
+	  
+  .panel {
+      border: 1px solid purple; 
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+	  height: 550px;
+	  text-align: center;
+  }
+	  
+	  
+	  
+	.panel img{
+      margin-left: 130px;
+  }  
+	  
+	  
+	  
+	  
+	  
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+      border: 1px solid black;
+      background-color: pink !important;
+      color: black;
+  }
+ .panel-heading {
+      color: #fff !important;
+      background-color: lightgray!important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+      background-color: pink !important;
+  }
+  .panel-footer h3 {
+      font-size: 32px;
+  }
+  .panel-footer h4 {
+      color:darkgray;
+      font-size: 14px;
+  }
+  .panel-footer .btn {
+      margin: 15px 0;
+      background-color: pink;
+      color: black;
+  }
+	  
+  
+	  
+	  
+	  
+  .navbar {
+      margin-bottom: 0;
+      background-color: red;
+      z-index: 9999;
+      border: 0;
+      font-size: 16px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+	  height: 100px;
+	  padding: 30px 10px 10px 10px;
+  }
+	  
+	  .navbar img{
+		  height: 400px;
+		  margin-top: -160px;
+		  margin-left: -320px;
+		  position: relative;
+		 
+	  } 
+
+  .navbar li a, .navbar .navbar-brand{
+      color: black !important;
+	
+	  
+  }
+  .navbar li a, .navbar .navbar-brand img{
+      color: black !important;
+	  
+  }	  
+	  
+	  
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: black!important;
+      background-color: white !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: white !important;
+  }
+	  
+	  .maps{
+		  background-color: lightgray;
+		  margin-top: -20px;
+	  }
+	  
+	  .maps h2{
+		text-align: center;
+		  padding: 30px 5px 5px 5px;
+		
+	  }
+	  
+	  
+	 #googleMap{
+	   border: 1px solid purple;
+		 background-color: lightgray;
+		 
+	  }
+	  
+	 
+	  
+	  footer{
+		  background-color: lightgrey;
+	  }
+	  
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: mediumpurple;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+	  
+ @media screen and (max-width: 100%) {
+    h1 {
+      font-size: 20px;
+    }
+	  
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+	  
+  </style>
+	
+	
+</head>
+	
+	
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+		
+		
+		<div class="navbar-brand">
+			<a href="index.html"><img src="img/logofyp1.svg" /></a>
+	 
+     </div>
+    </div>
+	  
+	  
+	  
+    <div class="collapse navbar-collapse" id="myNavbar">
+		
+		
+		
+		
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">MODULES</a></li>
+        <li><a href="#portfolio">LIT NEWS</a></li>
+        <li><a href="#pricing">CAMPUS LIFE</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	
+	
+
+<div class="jumbotron text-center">
+		
+		
+		
+  <h1>Limerick Institute of Technology (LIT)</h1> 
+  <h3>- H. Dip in Computing in Creative Multimedia Programming</h3> 
+		<h4>Project Website Design for course in Creative Multimedia Programming</h4> 
+	 <p><small>- by</small> Sinead Boyce - Creative Multimedia Programming</p> 
+
+  <form>
+    <div class="input-group">
+      <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-danger">Subscribe to Our Seasonal Newsletter</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+	
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>H. Dip in Computing in Creative Multimmedia Programming (Level 8)</h2><br>
+      <h4>
+		  <p>This postgraduate programme offers rewarding and challenging possibilities for learners interested in undertaking a conversion programme in the area of multimedia, and its application in social, media and enterprise environments. Given the scale of the IT sector in Ireland, and the current expansion of roles associated with the IT sector, it is projected that there will be healthy demand for talented Computing/ IT graduates over the next number of years. The aim of this 1 year conversion programme is to provide students with an academically challenging educational experience that will enable them to develop the knowledge base, professional attitudes, project management skills and industry awareness to serve both the multimedia computing industry and society. The course also aims to provide the student with the opportunity to engage in independent research that integrates concepts, issues and ethical principles that allow the student to question existing precepts. </p>
+		  <a href="http://flexiblelearning.lit.ie/course/creative-multimedia-programming-level-8-higher-diploma-ict-skills-2/">Read More...</a></h4>
+	
+		<button class="btn btn-default btn-lg">Get in Touch</button>
+    </div>
+    <div class="col-sm-4">
+		
+		
+	<img src="img/line%20spiral%20animation.gif" alt="spiral animation" height=360px width=350px>
+
+    </div>
+  </div>
+</div>
+
+	
+	
+	
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-globe logo slideanim"></span>
+    </div>
+	  
+	  
+	  
+    <div class="col-sm-8">
+		
+      <h2>Our Values</h2><br>
+		
+      <h4><strong>PRESIDENTS WELCOME:</strong> 
+I am delighted that you are considering LIT for your future. As the President of LIT, I hope you will come here for the same reasons that attracted and excited me. Many of those reasons are outlined on this site.
+LIT is among the most vibrant and connected institutions in Ireland. When you look around our 5 campuses, you will see an astonishing diversity of programmes and people exploring new ideas, pursuing new knowledge, creating new art, and filling our workshops, studios and labs with the vibrancy that comes from being an institution that is committed to discovery and creativity.
+As a student in LIT, you will find yourself at the heart of this vibrancy and activity. Each of our campuses is a community of learning, rooted in its place, and rooted in our ethos of learning together and bringing theory and practice together. <a href="http://www.lit.ie/President/default.aspx">Read More...</a>
+		  </h4><br>
+
+		
+      <h4><strong>EDUCATIONAL PHILOSOPHY:</strong>   LIT has a distinctive approach to Teaching and Learning known as the Active Learning philosophy. Whatever discipline area is offered the core methodology is active and practical; lab work, studio work, case studies, field visits, group assignments and more. 
+This approach to teaching and learning is embedded in assessment strategies and campus development so that the learning environment reflects the identity of LIT. It is also underpinned by staff developments, e.g. workshops and an online repository of active learning strategies.
+		  <a href="http://www.lit.ie/Reports/Pages/Quality%20Assurance.aspx">Read More...</a>
+		  
+		  
+    </div>
+  </div>
+</div>
+
+	
+	
+<!-- Container (Course Structure Section) -->
+<div id="services" class="container-fluid text-center">
+	<h3> Course Structure</h3><h2>Creative Multimedia Programming (Moylish Campus) </h2>
+  <h3><strong>Duration:</strong> 52 Weeks, 20 to 25 hours per week (Daytime)
+Commencing early September 2017 (TBC)</h3>
+	
+	
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-off logo-small"></span>
+      <h4>ENTRY REQUIREMENTS</h4>
+      <p>Applicants must satisfy the minimum entry requirement of a Level 8 degree, or equivalent, in a non-IT discipline. Recognition of Prior Learning (RPL) may be granted based on relevant experience and training in accordance with LIT’s RPL Policy. Springboard criteria apply</p> <a href="https://www.springboardcourses.ie/">Read More...</a>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-heart logo-small"></span>
+      <h4>CONTENT</h4>
+		<p>The pace of delivery and intensity of the programme demand strong commitment and dedication. Learners will engage in active learning through:
+
+• Attendance on-site at LIT
+• Lectures
+• Tutorials
+• Practicals
+• Lab-based lecturers
+• Seminars
+• Workshops.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-lock logo-small"></span>
+      <h4>Qualifications</h4>
+     <p>H. Dip in Computing in Creative and Multimedia Programming. </p> <p>Higher Diploma (Level 8, 60 Credits).</p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-leaf logo-small"></span>
+      <h4>MODULES</h4>
+      <p><strong>Semester 1:</strong>
+
+Web Programming, Web Development, Interactive Multimedia Design, Multimedia Digital Video, 3D
+
+		  Graphics, Multimedia Database Systems & Design.</p>
+
+<p><strong>Semester 2:</strong>
+
+Advanced Web Programming, Emerging Web Technologies, Interactive Interface Design, Multimedia
+
+	Project, plus Elective Subjects.</p>
+
+<p><strong>Semester 3:</strong>
+
+3 month Work Placement.</p>
+		
+		
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4>ASSESSMENT/EXAMINATIONS</h4>
+		<p>Participants will be assessed through</p><p> ongoing continuous assessment,</p><p> assignments, projects and examinations.</p>
+    </div>
+	  
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-wrench logo-small"></span>
+		<h4>SPRINGBOARD APPLICANTS</h4>
+		<p>This programme is part supported by the Irish government and the European Social Fund as part of the ESF Programme for Employability, Inclusion and Learning 2014-2020.</p><p><strong>Course Fees:</strong>
+If you are eligible to complete this course under the Springboard ICT Skills initiative no course fees will apply. Applicants must apply for this programme at www.springboardcourses.ie.</p>
+		<a href="https://www.springboardcourses.ie/">Read More...</a>
+    </div>
+  </div>
+</div>
+
+	
+	
+<!-- Container (LIT News) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <h2>LIT NEWS</h2><br>
+  <h4>What is currently in the news about LIT</h4>
+  <div class="row text-center slideanim">
+	  
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="img/LIT_Scholarships_6.JPG" alt="LIT Scholarships" width="400" height="300">
+
+        <p><strong>LIT Scholarships</strong></p>
+		<p>“Unique and transformational”: Paul O’Connell on €600,000 LIT Scholarship Fund for DEIS School Students.</p>
+        <p>Mayor and other leaders recognise scholars and donors as WP Engine becomes latest FDI company to join Leaders@LIT programme.</p> <p>54 third level students from DEIS Schools across Limerick are being sustained in their studies by a student scholarship programme valued at €600,000 this year and run as an initiative of the LIT Foundation.</p>
+      </div>
+		
+    </div>
+	  
+	  
+    <div class="col-sm-4">
+      <div class="thumbnail">
+		<img src="img/LIT%20Coonagh%20Render1.jpg" alt="LIT Campus Expansion" width="400" height="300">
+        <p><strong>LIT Campus Expansion</strong></p>
+        <p>Planning Permission for €14 million Coonagh Campus Welcomed by LIT</p>
+		  <p>The new campus is planned to be the location for education and research in engineering from inception, becoming a centre of excellence with state-of-the-art engineering facilities. There will be particular emphasis on precision engineering, with activity in Coonagh expected to further underpin direct investment and sectoral jobs growth across the region.LIT will now work to deliver the project with the objective of having the first cohort of students in Coonagh during the 2017/2018 academic year.</p>
+      </div>
+		
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="img/LIT_Marketlink_Group_Shot.jpg" alt="LIT Marketlink" width="400" height="300">
+        <p><strong>Limerick Charities benefit from Limerick's Marketlink</strong></p>
+        <p>Three local Limerick organisations have benefited from the thousands of euro raised during the Limerick Institute of Technology freshers week events. 
+
+Students, drawn from the Marketing and Management and Applied Social Care programmes at LIT, developed business ideas and sold their products or services at the annual Market Link Fair in LIT, to raise money for their chosen charities. 
+
+Market Link is a hugely successful annual event in LIT, raising thousands of euro for various charities since its inception in 2009.Over €3,200 was given to the Children’s Ark Unit at University Hospital Limerick while students from Applied Social Care raised over €3,000 for Limerick Marine Search and Rescue and Rape Crisis Mid-West. </p>
+      </div>
+    </div>
+  </div><br>
+	
+	
+	
+  
+  <h2>What our student's say</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+	  
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h4>"Great, I can use this in my everyday life!"<br><span>Marie O'Beirne, Homemaker</span></h4>
+      </div>
+      <div class="item">
+        <h4>"I can focus my thoughts and get ready for the day!!"<br><span>Ger Lynwood, Lecturer</span></h4>
+      </div>
+      <div class="item">
+        <h4>"All info in one place, short and sweet!"<br><span>Jason Kennedy, Structural Engineer</span></h4>
+      </div>
+		    <div class="item">
+        <h4>"I look forward to using the activities"<br><span>Monica Kennedy, Administrator</span></h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+	
+	
+<!-- Container (Campus Life Section) -->
+<div id="pricing" class="container-fluid">
+  <div class="text-center">
+    <h2>CAMPUS LIFE</h2>
+    <h4>This is a sample of activity at LIT</h4>
+  </div>
+	
+	
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+			
+			
+          <h1>Campus Life</h1>
+        </div>
+        <div class="panel-body">
+          <p>Academic Calendar</p>
+			<p>News & Events</p>
+          <p>Services</p>
+          <p>Accomodation Office</p>
+          <p>Culture & Community in Limerick</p>
+			<p>Millennium Theatre</p>
+        </div>
+
+                 <h4>https://www.lit.ie</h4>
+    
+ <img src="img/LIT%20Logo.png" alt="LIT Logo" class="img-circle img-responsive">
+
+      </div>      
+    </div>   
+	  
+	  
+	  
+	  
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Sports Clubs and Societies</h1>
+        </div>
+        <div class="panel-body">
+          <p>Clubs & Societies</p>
+          <p>Sports & Recreation</p>
+          <p>Student Radio</p>
+          <p>Green Campus</p>
+        </div>
+        
+          <h4>https://www.lit.ie</h4>
+         
+ <img src="img/LIT%20Logo.png" alt="LIT Logo" class="img-circle img-responsive">
+
+      </div>      
+    </div>       
+	 
+	  
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Locations</h1>
+        </div>
+        <div class="panel-body">
+          <p>Moylish</p>
+          <p>Clare Street</p>
+          <p>Ennis</p>
+          <p>George's Quay</p>
+          <p>Thurles</p>
+		  <p>Clonmel</p>
+        </div>
+               <h4>https://www.lit.ie</h4>
+         
+ <img src="img/LIT%20Logo.png" alt="LIT Logo" class="img-circle img-responsive">
+
+      </div>      
+    </div>   
+	  
+	  
+  </div>
+</div>
+
+	
+	
+	
+	
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+	
+  <div class="row">
+    <div class="col-sm-5">
+     
+      <p><span class="glyphicon glyphicon-map-marker"></span> Limerick Institute of Technology, Moylish, Limerick, Ireland (Postal Address)</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +353 061 293000 (LIT)</p>
+		    <p><span class="glyphicon glyphicon-phone"></span> +353 061 293802 (Creative Multimedia Programming)</p>
+	
+      <p><span class="glyphicon glyphicon-envelope"></span> information@lit.ie (LIT)</p>
+		 <p><span class="glyphicon glyphicon-envelope"></span> FFLLimerick@lit.ie (Creative Multimedia Programming)</p>
+	<br>
+			<img src="img/owlsgifs.gif" alt="owl animation" width="200px" height="220px">
+		<br>
+
+    </div>
+	  
+	  
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	
+	
+	
+
+<!-- Add Google Maps -->
+	<div class="maps">
+		<h2>LIT Location using Google Maps</h2>
+<div id="googleMap" style="height:450px;width:100%;"></div>
+
+
+
+<script>
+function myMap() {
+var myCenter = new google.maps.LatLng(52.6749, -8.6476);
+var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({position:myCenter});
+marker.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARYPWAsE5IFiwasKMUTf-HbBGOpo3UWik&callback=myMap"></script>
+		
+		</div>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>go to the top</p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
